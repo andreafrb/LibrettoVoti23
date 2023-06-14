@@ -23,7 +23,21 @@ public class TestLibretto {
 		lib.stampaPuntiMinori(25);
 		
 		Voto v = lib.cercaVotoPerNome("Analisi 1");
-		System.out.println(v);
+		if (v==null) {
+			System.out.println("Voto non trovato");
+		}
+		else {
+			System.out.println(v);
+		}
+		
+		Voto a1bis = new Voto("Analisi 1", 29, LocalDate.of(2023, 02, 15));
+		Voto a1ter = new Voto("Analisi 1", 24, LocalDate.of(2023, 02, 15));
+		
+		System.out.println(a1bis + " è duplicato: " + lib.esisteVoto(a1bis));
+		System.out.println(a1ter + " è duplicato: " + lib.esisteVoto(a1ter));
+		
+		System.out.println(lib.conflittoEsame(a1bis));
+		
 
 	}
 

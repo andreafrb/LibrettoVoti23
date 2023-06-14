@@ -56,6 +56,25 @@ public class Libretto {
 				return v;	
 		}
 		return null;
+		//throw new RuntimeException("Voto non trovato");
+	}
+	
+	public boolean esisteVoto(Voto nuovo) {
+		for (Voto v: voti) {
+			if (v.getCorso().equals(nuovo.getCorso()) && v.getPunti() == nuovo.getPunti())
+			//if (v.equalsCorsoPunti(nuovo))
+				return true;
+		}
+		return false;	
+	}
+	
+	public boolean conflittoEsame(Voto nuovo) {
+		for (Voto v: voti) {
+			if ( (v.getCorso().equals(nuovo.getCorso())) && (v.getPunti() != nuovo.getPunti()))
+			//if (v.conflittoCorsoPunti(nuovo))
+				return true;
+		}
+		return false;	
 	}
 
 }

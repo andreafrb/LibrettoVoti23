@@ -42,6 +42,34 @@ public class Voto {
 		return "Voto [corso=" + corso + ", punti=" + punti + ", data=" + data + "]";
 	}
 	
+	/**
+	 * Controlla se esiste già un voto con stesso nome e punteggio
+	 * @param v: Voto
+	 * @return true se voto esiste già, falso altrimenti
+	 */
+	
+	public boolean equalsCorsoPunti(Voto v) {
+		if (this.getCorso().equals(v.getCorso()) && this.getPunti() == v.getPunti()) {
+			return true;
+		}
+		else
+			return false;
+	}
+	
+	
+	/**
+	 * Controlla se esiste già un esame ma con voto diverso
+	 * @param v
+	 * @return
+	 */
+	public boolean conflittoCorsoPunti(Voto v) {
+		if (this.getCorso().equals(v.getCorso()) && !(this.getPunti() == v.getPunti())) {
+			return true;
+		}
+		else
+			return false;
+	}
+	
 	
 	
 	
