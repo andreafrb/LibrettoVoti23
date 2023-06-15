@@ -12,6 +12,13 @@ public class Voto {
 		this.punti = punti;
 		this.data = data;
 	}
+	
+	//Copy constructor di Voto
+	public Voto(Voto v) {
+		this.corso = v.corso;
+		this.punti = v.punti;
+		this.data = v.data;
+	}
 
 	public String getCorso() {
 		return corso;
@@ -56,23 +63,23 @@ public class Voto {
 			return false;
 	}
 	
+	public boolean isDuplicato(Voto altro) {
+		return this.getCorso().equals(altro.getCorso()) && this.getPunti() == altro.getPunti();
+	}
 	
 	/**
 	 * Controlla se esiste già un esame ma con voto diverso
 	 * @param v
 	 * @return
 	 */
-	public boolean conflittoCorsoPunti(Voto v) {
-		if (this.getCorso().equals(v.getCorso()) && !(this.getPunti() == v.getPunti())) {
-			return true;
-		}
-		else
-			return false;
+	public boolean isConflitto(Voto altro) {
+		return this.getCorso().equals(altro.getCorso()) && this.getPunti() != altro.getPunti();
+	}
+
+	public Voto clone() {
+		return new Voto(this.corso, this.punti, this.data);
 	}
 	
 	
 	
-	
-	
-
 }
