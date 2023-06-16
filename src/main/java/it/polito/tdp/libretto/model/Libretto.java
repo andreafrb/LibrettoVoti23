@@ -159,9 +159,15 @@ public class Libretto {
 				return o2.getPunti() - o1.getPunti();
 			}		
 		});
-
 		return ordinato;
-		
+	}
+	
+	public String toString() {
+		String txt = "";
+		for (Voto v: this.voti) {
+			txt = txt + v.toString() + "\n";
+ 		}
+		return txt;
 	}
 
 }
